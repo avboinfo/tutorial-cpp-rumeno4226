@@ -1,7 +1,7 @@
 /*
 ** prova_struct.cpp
-** Author: IAV 3CIN
-** 28/02/2021
+** Andrei Bojan
+** 26/02/2024
 */
 
 #include <iostream>
@@ -13,19 +13,35 @@ using namespace std;
 ** attraverso il nome unico della struttura.
 */
 
-struct numeri
+struct persona
 {
-    int val_uno;
-    float val_due;
+  string nome;
+   int eta;
 };
 
+typedef struct
+{
+  int uno;
+  int due;
+}
+COPPIA;
+typedef int numeroanni;
 
 int main()
 {
-  struct numeri n;
-  n.val_uno = 100;
-  cout <<  "1) n.val_uno = " << n.val_uno << " - " << "n.val_due = " << n.val_due << endl;
-  n.val_due = 33.33;
-  cout <<  "2) n.val_uno = " << n.val_uno << " - " << "n.val_due = " << n.val_due << endl;
+  struct persona mario, balotelli;
+
+  COPPIA coppiaEta;
+  coppiaEta.uno = 33;
+  coppiaEta.due = 69;
+
+  mario.nome = "SuperMario";
+  mario.eta = coppiaEta.uno;
+
+  balotelli.nome = "Nutelloso";
+  balotelli.eta = coppiaEta.due;
+
+  cout << " Mario si chiama " << mario.nome << " ed ha " << mario.eta << " anni\n ";
+  cout << "Balotelli si chiama " << balotelli.nome << " ed ha " << balotelli.eta << " anni ";
   return 0;
 }

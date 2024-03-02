@@ -30,10 +30,19 @@ public:
         {
             for (int j = 0; j < 3; j++)
             {
+
+                cout<<"|";
+
                 cout << griglia[i][j] << "\t";
             }
+            
+            cout<<"|"<<"\t";
+
             cout << endl;
         }
+
+         cout<<"----------------"<<"endl";
+
     }
 
     bool giocatoreUno(int x, int y)

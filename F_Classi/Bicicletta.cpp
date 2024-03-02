@@ -9,6 +9,13 @@ class Bicicletta {
   public:
     int raggio;
     string colore;
+     
+    Bicicletta()
+    {
+        raggio = 10;
+        colore=" Bianco ";
+    }
+
     Bicicletta( int r, string c ) {
         raggio=r;
         colore=c;
@@ -22,9 +29,11 @@ int main()
 {
     Bicicletta x(16,"verdino");
     Bicicletta y(14,"rossastro");
+    Bicicletta w;
 
     x.presentati();
     y.presentati();
+    w.presentati();
 
     return 0;
 }
