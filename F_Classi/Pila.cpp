@@ -1,12 +1,12 @@
 /*
-Andrei Bojan, 3^CIN, 04.03.2024
-Classi Vettori di Interi
+Andrei Bojan, 3^CIN, 11.03.2024
+Classe Pila di Interi
 */
 
 #include <iostream>
 using namespace std;
 
-class Vettore
+class Pila
 {
 
 protected:  //Modificatore di visibilità. 
@@ -16,7 +16,8 @@ public:
         int * v;
 
 public:
-    Vettore(int d, int delta)
+
+    Pila(int d, int delta)
     {
         this -> dim = dim;
         this -> delta = delta;
@@ -27,12 +28,12 @@ public:
         v = new int[dim];
     }
 
-    void add(int n)
+    void push(int n)
     {
         if (len == dim)
         {
 
-            cout << "Estendo da " << dim << " a " << dim+delta << " !" << endl;
+            //cout << "Estendo da " << dim << " a " << dim+delta << " !" << endl;
 
             int * nuovoV = new int[dim + delta];
 
@@ -46,6 +47,21 @@ public:
 
         v[len] = n;
         len++;
+    }
+
+    int pop()
+    {
+        if( len == 0 )
+        {
+            cout << "\nERRORE pila vuota\n";
+
+            return 0;
+        }
+
+        return v[--len];
+
+        //int result = v [len - 1];
+
     }
 
     int getElement ( int index )
@@ -74,16 +90,19 @@ public:
 
 int main(int argc, char *argv[])
 {
-    Vettore vett(10, 2);
+    Pila vett(10, 10);
 
     for (int i = 0; i < 100; i++)
-        vett.add(i);
+        vett.push(i);
 
-        cout << vett.getElement(10) << endl;
+    for (int i = 0; i < 100; i++)
+    {
+        cout << vett.pop() << " ";
+    } 
 
-        vett.setElement ( 10, 333);
+    cout << endl;
 
-            vett.print();
+    vett.print();       
 
     return 0;        
 }
