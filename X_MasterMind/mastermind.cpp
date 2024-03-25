@@ -20,16 +20,16 @@ private:
         {
             char c = ultimaMossa[i];
 
-            if (c >= '0' && c<= '9')
+            if (c >= '0' && c <= '9')
                 giocataValida[i] = c - '0';
 
             else if (c == '-')
                 giocataValida[i] = -1;
 
-            else 
-                return false;           
-        }  
-        return true;  
+            else
+                return false;
+        }
+        return true;
     }
 
     void generaCodiceSegreto()
@@ -37,13 +37,34 @@ private:
         srand(time(NULL));
         for (int i = 0; i < DIM_GIOCATA_VALIDA; i++)
         {
-            codiceSegreto[i] = rand()%10;
+            codiceSegreto[i] = rand() % 10;
 
-        }  
+            std::cout << codiceSegreto[i];
+        }
+
+        std::cout << std::endl;
+    }
+
+    int *copiaVettore(int vettoreOriginale[])
+    {
+        static int vettoreCoppia[DIM_GIOCATA_VALIDA];
+        for (int i = 0; i < DIM_GIOCATA_VALIDA; i++)
+        {
+            vettoreCoppia[i] = vettoreOriginale[i];
+        }
+
+        return vettoreCoppia;
+    }
+
+    void copiaVettoreBis(int vettoreOriginale[], int vettoreCopia[], int dimVet)
+    {
+        for (int i = 0; i < dimVet; i++)
+        {
+            vettoreCopia[i] = vettoreOriginale[i];
+        }
     }
 
 public:
-
     mastermind()
     {
         numeroMosse = 0;
@@ -60,12 +81,45 @@ public:
             std::getline(std::cin, ultimaMossa); /*Più preciso rispetto a cin.*/
 
         } while (!sanificaInput());
-        
+
         numeroMosse++;
     }
 
     void risultatoMossa()
     {
-        /*code*/
+        int strike, ball;
+        strike = ball = 0;
+
+        // int * codiceSegretoBis = copiaVettore(codiceSegreto, DIM_GIOCATA_VALIDA);
+
+        int codiceSegretoBis[DIM_GIOCATA_VALIDA];
+
+        copiaVettoreBis(codiceSegreto, codiceSegretoBis, DIM_GIOCATA_VALIDA);
+
+        for (int i = 0; i < DIM_GIOCATA_VALIDA; i++)
+        {
+            for (int j = 0; j < DIM_GIOCATA_VALIDA; j++)
+            {
+                if (codiceSegreto[i] == codiceSegretoBis[j])
+                {
+                    if (i == j)
+                        strike++;
+                    else
+                        ball++;
+                    codiceSegretoBis[j] = -2;
+                    break;
+                }
+            }
+
+
+        }
+
+        std::cout << "Il numero di strike e' :" << strike << std::endl;
+        std::cout << "Il numero di ball e' :" << ball << std::endl;
+    }
+
+    bool puoiContinuare()
+    {
+        
     }
 };
