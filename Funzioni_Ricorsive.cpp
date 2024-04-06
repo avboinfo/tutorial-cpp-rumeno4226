@@ -23,6 +23,18 @@ int sommaNum (int somma, int n, int m)
 
 }
 
+/*int sommaNumProf (int n, int m)
+{
+    if ( n>m )
+        return 0;
+
+    if ( n==m )
+        return m;
+
+    return m+sommaNumProf (n, m-1);
+
+}*/
+
 int main()
 {
    int n, m, somma = 0;
