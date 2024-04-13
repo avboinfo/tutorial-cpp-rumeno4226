@@ -13,11 +13,11 @@ class Matrice
        int m[10][10];
         
     public:
-       Matrice()
+       Matrice( int n )
        {
             for ( int i=0; i<10; i++)
                 for ( int j=0; j<10; j++)
-                    m[i][j] = 0;
+                    m[i][j] = n;
        }
         
        void stampa()
@@ -42,7 +42,7 @@ class Matrice
 
 int main()
 {
-    Matrice m1 = Matrice();
+    Matrice m1 = Matrice( 3 );
 
     m1.stampa();
 }
