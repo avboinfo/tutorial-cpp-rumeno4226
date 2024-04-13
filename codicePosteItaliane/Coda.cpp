@@ -18,7 +18,7 @@ public:
 
     Coda(string name, int size)
     {
-        this->name = name:
+        this->name = name;
         this->size = size;
         v = new int[size];
         start = stop = 0;

@@ -32,16 +32,16 @@ public:
     {
         switch (servizio)
         {
-            case R :
+            case nR :
                 codaR.enter(nR++);
                 break;
 
-            case S :
-                codaS.enter(cS++);
+            case nS :
+                codaS.enter(nS++);
                 break;
 
-            case F :
-                codaF.enter(cF++);
+            case nF :
+                codaF.enter(nF++);
                 break;
 
             default:
@@ -49,22 +49,23 @@ public:
         }
     }
 
-    void chiamaCliente(char servizio)
+    int chiamaCliente(char servizio)
     {
-        switch (servvizio)
+        switch (servizio)
         {
-            case R :
+            case nR :
                 return codaR.exit(nR++);
 
-            case S :
-                return codaS.exit(cS++);
+            case nS :
+                return codaS.exit(nS++);
 
-            case F :
-                return codaF.exit(cF++);
+            case nF :
+                return codaF.exit(nF++);
 
             default:
                 cout << "Questo servizio non e' previsto :/!" << endl;
-    }
+        }
+    } 
 
     void stampaTabellone()
     {
