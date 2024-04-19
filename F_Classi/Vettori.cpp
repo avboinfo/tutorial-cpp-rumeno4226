@@ -12,10 +12,11 @@ class Vettore
 protected:  //Modificatore di visibilità. 
     int dim, len, delta;
 
-public: 
-        int * v;
+private: 
+    int * v;
 
 public:
+
     Vettore(int d, int delta)
     {
         this -> dim = dim;
@@ -83,7 +84,7 @@ int main(int argc, char *argv[])
 
         vett.setElement ( 10, 333);
 
-            vett.print();
+        vett.print();
 
     return 0;        
 }

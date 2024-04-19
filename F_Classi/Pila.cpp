@@ -12,8 +12,8 @@ class Pila
 protected:  //Modificatore di visibilità. 
     int dim, len, delta;
 
-public: 
-        int * v;
+private: 
+    int * v;
 
 public:
 
