@@ -5,6 +5,7 @@ Classe Ufficio Postale di Interi
 
 #include <iostream>
 #include "Coda.cpp"
+
 using namespace std;
 
 class UfficioPostale
@@ -74,6 +75,5 @@ public:
         codaR.stampa();
         codaS.stampa();
         codaF.stampa();
-
     }
 };

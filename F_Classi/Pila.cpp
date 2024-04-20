@@ -88,7 +88,7 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
+int main()
 {
     Pila vett(10, 10);
 

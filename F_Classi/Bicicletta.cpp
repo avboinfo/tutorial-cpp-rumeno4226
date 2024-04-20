@@ -13,14 +13,16 @@ class Bicicletta {
     Bicicletta()
     {
         raggio = 10;
-        colore=" Bianco ";
+        colore = " Bianco ";
     }
 
-    Bicicletta( int r, string c ) {
+    Bicicletta( int r, string c ) 
+    {
         raggio=r;
         colore=c;
     }
-    void presentati() {
+    void presentati() 
+    {
         cout << "Buongiorno, sono una bici di colore " << colore << " e con le ruote " << raggio << "!" << endl;
     }
 };
