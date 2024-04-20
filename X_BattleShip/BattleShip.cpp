@@ -14,7 +14,7 @@ class BattleShip
     BattleField mappa = BattleField ( VOID );
 
     BattleField campo = BattleField ( VOID );
-
+    
 public:
     BattleShip()
     {
@@ -52,7 +52,28 @@ public:
 
         mappa.stampa();
 
+        ask();
+
+        mappa.stampa();
         campo.stampa();
+    }
+
+    void ask()
+    {
+        cout << "Inserisci una le coordinate di riga e colonna in cui sganciare la BOMBOCLAT!";
+
+        int x, y;
+        cin >> x;
+        cin >> y;
+
+        if ( campo.get( x, y )==SHIP )
+        { 
+            mappa.put( x, y, HIT);
+
+            campo.put( x, y, HIT);
+        }
+        else
+            mappa.put ( x, y, MISS );
     }
 };
 

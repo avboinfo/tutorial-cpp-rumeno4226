@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-    cout << "Gioco della battaglia navale - Buon Divertimento! :)"
+    cout << "Gioco della battaglia navale - Buon Divertimento! :)";
 
-    BattleShip.gioco = BattleShip;
+    BattleShip gioco = BattleShip();
 
     gioco.play();
 
