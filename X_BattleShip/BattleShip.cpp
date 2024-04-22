@@ -1,6 +1,5 @@
 /*
-** BattleShip
-una classe per giocare alla battaglia navale.
+** BattleShip, una classe per giocare alla battaglia navale.
 ** Andrei Bojan - 20/04/2024
 */
 
@@ -10,70 +9,82 @@ una classe per giocare alla battaglia navale.
 using namespace std;
 
 class BattleShip
-{
-    BattleField mappa = BattleField ( VOID );
+{   
+private:
 
-    BattleField campo = BattleField ( VOID );
+    BattleField mappa;
+
+    BattleField campo;
     
 public:
+
     BattleShip()
     {
         mappa = BattleField( VOID );
         campo = BattleField( VOID );
 
-        campo.placeHorizontalShip(3);
-        campo.placeVerticalShip(4);
+        campo.placeHorizontalShip( 3 );
+        campo.placeVerticalShip( 4 );
 
-        campo.placeVerticalShip(2);
-        campo.placeHorizontalShip(5);
+        campo.placeVerticalShip( 2 );
+        campo.placeHorizontalShip( 5 );
     } 
 
     void play()
     {
-        // lancia 20 bombe a caso
-
-        for (int i=0; i<20; i++)
+        while ( !gameOver() )
         {
-            int x = rand() % DIM;
-            int y = rand() % DIM;
+            mappa.stampa();
 
-            if ( campo.get( x, y ) == HIT )
-                continue;
-
-            if ( campo.get( x, y )==SHIP )
-            { 
-                mappa.put( x, y, HIT);
-
-                campo.put( x, y, HIT);
-            }
-            else
-                mappa.put ( x, y, MISS );
+            if ( !playHand() )
+                break;
         }
-
-        mappa.stampa();
-
-        ask();
-
-        mappa.stampa();
+        
         campo.stampa();
     }
 
-    void ask()
+    bool playHand()
     {
-        cout << "Inserisci una le coordinate di riga e colonna in cui sganciare la BOMBOCLAT!";
+        cout << "Inserisci le coordinate di riga e colonna ( 1 - " << DIM << " ) in cui sganciare la BOMBOCLAT!( Inserisci 0 se vuoi terminare il gioco! )";
 
         int x, y;
+
         cin >> x;
+
+        if ( x <= 0 || x > DIM )
+            return false;
+        else 
+            x--;    
+        
         cin >> y;
 
-        if ( campo.get( x, y )==SHIP )
-        { 
-            mappa.put( x, y, HIT);
+        if ( y <= 0 || y > DIM )
+            return false;
+        else
+            y--;    
 
-            campo.put( x, y, HIT);
+        if ( campo.get( x, y ) == SHIP )
+        { 
+            mappa.put( x, y, HIT );
+
+            campo.put( x, y, HIT );
         }
         else
             mappa.put ( x, y, MISS );
+
+        return true;    
     }
+
+    bool gameOver()
+    {
+        for ( int i = 0; i < DIM; i++ )
+        {
+            for ( int j = 0; j < DIM; j++)
+            {
+                if ( campo.get( i, j ) == SHIP )
+                    return false;    
+            }
+        }
+    }    
 };
 
