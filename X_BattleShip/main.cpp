@@ -1,3 +1,8 @@
+/*
+**Andrei Bojan, 3CIN, 23.04.2024 
+**Main delle classi BattleShip e BattleField.
+*/
+
 #include <iostream>
 #include "BattleShip.cpp"
 using namespace std;
